@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <style>
+    /* Particles.js Container */
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: #000;
+    }
+
+    /* Body and Container */
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(0, 0, 0, 0.9);
+      color: #ccc;
+      text-align: center;
+      padding: 1rem;
+      width: 100%;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-tr flex flex-col min-h-screen from-blue-900 via-purple-800 to-indigo-700 text-white font-sans relative">
+
+  <div id="particles-js" class="absolute top-0 left-0 w-full h-full z-0"></div>
+
+  <nav class="relative z-10 bg-gray-900 bg-opacity-80 p-4 shadow-md">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="/" class="text-xl font-bold text-blue-400 hover:text-white transition">Members Only</a>
+      <div class="space-x-3">
+        <a href="/" class="text-sm hover:text-blue-400 transition">Home</a>
+        <a href="/logout" class="text-sm hover:text-red-400 transition">Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container flex-grow mx-auto text-center relative z-10 mt-16 animate__animated animate__fadeIn">
+    <h1 class="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
+      Welcome, <%= user.first_name %>!
+    </h1>
+    <p class="text-sm mt-4">
+      <% if (user.membership_status) { %>
+        <span class="text-green-400">You are a member of the club!</span>
+      <% } else { %>
+        <span class="text-yellow-400">You are not a member yet.</span>
+      <% } %>
+    </p>
+    <div class="mt-6 space-y-3">
+      <% if (!user.membership_status) { %>
+        <a href="/join-club" class="bg-green-500 hover:bg-green-600 text-white px-5 py-2 rounded-lg shadow-md mr-6 transform transition hover:scale-105">
+          Join Club
+        </a>
+      <% } %>
+      <a href="/" class="bg-blue-500 hover:bg-blue-600 text-white px-5 py-2 rounded-lg shadow-md mr-6 transform transition hover:scale-105">
+        Return Home
+      </a>
+      <a href="/logout" class="bg-red-500 hover:bg-red-600 text-white px-5 py-2 rounded-lg shadow-md transform transition hover:scale-105">
+        Logout
+      </a>
+    </div>
+  </div>
+
+  <footer class="bg-gray-800 text-center py-4 mt-20">
+    <p class="text-gray-400 text-xs">&copy; 2024 Members Only. All rights reserved.</p>
+  </footer>
+
+  <script src="/js/particles.js"></script>
+  <script>
+    particlesJS.load('particles-js', '/js/particles-config.json');
+  </script>
+</body>
+</html>

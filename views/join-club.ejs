@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join Club</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body class="bg-gradient-to-b flex flex-col min-h-screen from-green-800 via-blue-900 to-indigo-900 text-white font-sans relative">
+
+  <div id="particles-js" class="absolute top-0 left-0 w-full h-full z-0"></div>
+
+  <nav class="relative z-10 bg-gray-900 bg-opacity-80 p-4 shadow-md">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="/" class="text-2xl font-extrabold text-blue-300 hover:text-white transition-all duration-200">Members Only</a>
+      <div class="space-x-4">
+        <a href="/dashboard" class="text-sm hover:text-blue-300 transition">Dashboard</a>
+        <a href="/logout" class="text-sm hover:text-red-400 transition">Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container flex-grow mx-auto text-center mt-16 px-4 animate__animated animate__fadeIn">
+    <h1 class="text-3xl font-bold text-blue-300">Join the Exclusive Club</h1>
+    <p class="mt-4 text-gray-300 text-sm">Become a member to access premium content and features.</p>
+
+    <form action="/join-club" method="POST" class="mt-6 bg-gray-800 bg-opacity-90 rounded-xl shadow-lg p-6 w-full max-w-md mx-auto">
+      <div class="mb-4">
+        <label for="passcode" class="block text-gray-300 text-sm font-medium">Membership Code</label>
+        <input type="text" id="passcode" name="passcode" required class="w-full mt-2 p-3 rounded-xl bg-gray-700 text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400">
+      </div>
+      <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-xl shadow-lg transition-all transform hover:scale-105">
+        Join Now
+      </button>
+    </form>
+
+    <a href="/dashboard" class="mt-6 text-blue-300 text-sm hover:text-blue-500 transition-all">Back to Dashboard</a>
+  </main>
+
+  <footer class="bg-gray-800 text-center py-4 mt-24">
+    <p class="text-gray-400 text-xs">&copy; 2024 Members Only. All rights reserved.</p>
+  </footer>
+
+  <script src="/js/particles.js"></script>
+  <script>
+    particlesJS.load('particles-js', '/js/particles-config.json');
+  </script>
+</body>
+</html>
